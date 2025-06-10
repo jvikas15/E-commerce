@@ -51,20 +51,23 @@ function populatesliderbox(namesArray){
           
           <div class="cardname">${name}</div>
           <div class="price">₹${price}</div>
-          <div class="discount">${discount}% OFF</div>`
+          <div class="discount">${discount}% OFF</div>
+          <div class="bag"><i class="fa-solid fa-bag-shopping"></i></div>
+          <div class="wishlist"><i class="fa-solid fa-heart"></i></div>`
+          card.prepend(imgbox)
+    sliderbox.appendChild(card) //these two are added here so that the image loads when the card is loading if put outside imgbox will not render
     })
     .catch((error)=>{alert("Too many images are generated in short time :p ----> "+error)})
-    card.prepend(imgbox)
-    sliderbox.appendChild(card)
+    
   });
 }
 
 //now when the page loads
-populatesliderbox(["The OG's","The Charmers","The Companions","Swagger"])
+populatesliderbox(["The OG's","Charmers","Rizzlers","Swagger","Ether"])
 
 //this will reload the sliderbox
 let rightarrow=document.querySelector(".rightarrow").addEventListener("click",function(){
-  populatesliderbox(["The OG's","The Charmers","The Companions","Swagger"])
+  populatesliderbox(["The OG's","Charmers","Rizzlers","Swagger","Ether"])
 })
 
 
