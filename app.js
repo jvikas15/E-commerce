@@ -80,21 +80,13 @@ function addToCart(item) {
 // this function will populate the slider box with elements= array elements
 
 function populatesliderbox(namesArray){
-  //select sliderbox
+  
   let sliderbox=document.querySelector(".sliderbox")
-  //clear previous cards on reexecution of code
+  
   sliderbox.innerHTML=""
-  //function to be applied on each element of namesArray
+  
   namesArray.forEach(name => {
-    //create a card
-    //create a imgbox
-    //create random price 
-    //create random discount
-    //fetch image
-    //add all to the card innerhtml in .then
-    //prepend imgbox in card--places child on top
-    //append card to slider box
-    // number of cards= number of elements
+  
     let card=document.createElement("div")
     card.classList.add("card")
     let imgbox=document.createElement("div")
@@ -157,16 +149,147 @@ function populatesliderbox(namesArray){
 }
 
 //now when the page loads
-populatesliderbox(["The OG's","Charmers","Rizzlers","Swaggers","Ether"])
+// writing it like this will cause error when slider isnt loaded and try to populate so there is a better way first we check that dom have a slider box then we will populate it
+
+// populatesliderbox(["The OG's","Charmers","Rizzlers","Swaggers","Ether"])
+// better way 
+if (document.querySelector(".sliderbox")) {
+  populatesliderbox(["The OG's", "Charmers", "Rizzlers", "Swaggers", "Ether"]);
+}
+
 
 //this will reload the sliderbox
-let rightarrow=document.querySelector(".rightarrow").addEventListener("click",function(){
-  populatesliderbox(["The OG's","Charmers","Rizzlers","Swaggers","Ether"])
-})
+let rightarrow = document.querySelector(".rightarrow");
+if (rightarrow) {
+  rightarrow.addEventListener("click", function () {
+    populatesliderbox(["The OG's", "Charmers", "Rizzlers", "Swaggers", "Ether"]);
+  });
+}
+
+
+
+
+// IN BAG POPULATING THE CARD CONTAINER 
+
+let main=document.querySelector(".main")
+let billcontainer=document.querySelector(".billcontainer")
+
+if (main && billcontainer) {
+  // only run this logic if on Bag.html
+  let storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  bagItems = storedCart;
+  bagpopulator(bagItems);
+  calculateBill(bagItems);
+  updateBadges();
+}
+
+
+function bagpopulator(bagItems){
+  let bagcards=document.querySelector(".bagcards");
+  bagcards.innerHTML="";
+  bagItems.forEach(item => {//create card
+                            let card=document.createElement("div");
+                            card.classList.add("card")
+    // Create imgbox
+    let imgbox = document.createElement("div");
+    imgbox.classList.add("imgbox");
+    imgbox.innerHTML = `<img src="${item.img}">`;
+
+    // Card content
+    card.innerHTML += `
+      <div class="cardname">${item.name}</div>
+      <div class="price">Price: ₹${item.price}</div>
+      <div class="discount">${item.discount}% OFF</div>
+      <div class="finalprice">Final: ₹${item.finalPrice}</div>
+    `;
+  
+    // Prepend imgbox and append to bagcards
+    card.prepend(imgbox);
+    bagcards.appendChild(card);
+  });
+}
+if (document.querySelector(".bagcards")) {
+  // Read cart from localStorage
+  let storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  bagItems = storedCart;
+  bagpopulator(bagItems);
+  calculateBill(bagItems);
+
+  updateBadges(); // to sync navbar badges
+}
 
 
 
 
 
+// bill stuff.
 
-    
+function calculateBill(bagItems) {
+  let billcontainer = document.querySelector(".billcontainer");
+  billcontainer.innerHTML = ""; // Clear previous bill
+
+  let billHTML = `<h2>Bill Summary</h2>`;
+
+  // 1️⃣ List items and calculate subtotal
+  let subtotal = 0;
+  billHTML += `<ul>`;
+  bagItems.forEach(item => {
+    billHTML += `<li>${item.name} — ₹${item.finalPrice}</li>`;
+    subtotal += item.finalPrice;
+  });
+  billHTML += `</ul>`;
+
+  // 2️⃣ Add taxes and charges
+  let gst = Math.floor(subtotal * 0.28);
+  let delivery = Math.floor(subtotal * 0.10);
+  let finalTotal = subtotal + gst + delivery;
+
+  // 3️⃣ Display final totals
+  billHTML += `
+    <p>Subtotal: ₹${subtotal}</p>
+    <p>GST (28%): ₹${gst}</p>
+    <p>Delivery (10%): ₹${delivery}</p>
+    <hr>
+    <h3>Total: ₹${finalTotal}</h3>
+  `;
+
+  billcontainer.innerHTML = billHTML;
+}
+
+
+// populating wishlistbox in wishlistItems.html using wishlistItems[]
+
+function populatewishlistbox(wishlistItems){
+  let wishlistbox=document.querySelector(".wishlistbox");
+  wishlistbox.innerHTML="";
+  wishlistItems.forEach(item => {//create card
+                            let card=document.createElement("div");
+                            card.classList.add("card")
+    // Create imgbox
+    let imgbox = document.createElement("div");
+    imgbox.classList.add("imgbox");
+    imgbox.innerHTML = `<img src="${item.img}">`;
+
+    // Card content
+    card.innerHTML += `
+      <div class="cardname">${item.name}</div>
+      <div class="price">Price: ₹${item.price}</div>
+      <div class="discount">${item.discount}% OFF</div>
+      <div class="finalprice">Final: ₹${item.finalPrice}</div>
+    `;
+  
+    // Prepend imgbox and append to bagcards
+    card.prepend(imgbox);
+    wishlistbox.appendChild(card);
+  });
+}
+// this will run the above fn 
+if (document.querySelector(".wishlistbox")) {
+  // Read cart from localStorage
+  let storedwishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  wishlistItems = storedwishlist;
+  populatewishlistbox(wishlistItems);
+  
+
+  updateBadges(); // to sync navbar badges
+}

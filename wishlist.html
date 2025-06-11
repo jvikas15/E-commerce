@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bag</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .container{height: 80vh;width: 100vw;border: 1px solid red; display: flex;}
+      .wishlistbox{height: 60vh;width: 80vw;display: flex;justify-content: space-around;}
+      /* .card{} */
+      
+
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="navbar">
+        <div class="logo" id="home">
+          <i class="fa-brands fa-pied-piper-alt"></i>
+        </div>
+        
+          <ul class="navlistul">
+            <!-- if i will put same id in href and in section then clicking on the anchor will take to that section  -->
+            <li>
+              <a href="index.html" target="_blank"><i class="fa-solid fa-house home"></i></a>
+            </li>
+            <li>
+              <a href="index.html" target="_blank"><i class="fa-solid fa-person men"></i></a>
+            </li>
+            <li>
+              <a href="index.html" target="_blank"
+                ><i class="fa-solid fa-person-dress women"></i
+              ></a>
+            </li>
+            <li>
+              <a href="index.html" target="_blank" 
+                ><i class="fa-solid fa-child-reaching kidsIcon"></i
+              ></a>
+            </li>
+          </ul>
+        
+        <div class="searchbardiv">
+          <input type="text" placeholder="Search..." class="searchbar" />
+        </div>
+
+        <div class="navcorner">
+          <div class="bag">
+            <i class="fa-solid fa-bag-shopping"></i
+            ><span class="badge bag-badge">0</span>
+          </div>
+          <div class="wishlist">
+            <i class="fa-solid fa-heart"></i
+            ><span class="badge wishlist-badge">0</span>
+          </div>
+        </div>
+        <!-- <button class="login">Login</button>
+        <button class="signup">SignUp</button> -->
+      </div>
+    </header>
+    <div class="container">
+      <div class="wishlistbox">
+        <div class="card"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      
+      <p class="copyright" style="text-align: center;">&copy; All Rights Reserved | Vikas Jakhar</p>
+    </footer>
+    <script src="demo.js">
+
+    </script>
+  </body>
+</html>
