@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Future</title>
+    <title>E-commerce</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,31 +24,40 @@
         <div class="logo" id="home">
           <i class="fa-brands fa-pied-piper-alt"></i>
         </div>
-        <div class="navlist">
-        <ul class="navlist">
-          <!-- if i will put same id in href and in section then clicking on the anchor will take to that section  -->
-          <li>
-            <a href="#home"><i class="fa-solid fa-house" class="home"></i></a>
-          </li>
-          <li>
-            <a href=""><i class="fa-solid fa-person" class="men"></i></a>
-          </li>
-          <li>
-            <a href=""
-              ><i class="fa-solid fa-person-dress" class="women"></i
-            ></a>
-          </li>
-          <li>
-            <a href=""
-              ><i class="fa-solid fa-child-reaching" class="kids"></i
-            ></a>
-          </li>
-        </ul></div>
+        
+          <ul class="navlistul">
+            <!-- if i will put same id in href and in section then clicking on the anchor will take to that section  -->
+            <li>
+              <a href="#shoppingArea"><i class="fa-solid fa-house" class="home"></i></a>
+            </li>
+            <li>
+              <a href="#shoppingArea"><i class="fa-solid fa-person" class="men"></i></a>
+            </li>
+            <li>
+              <a href="#shoppingArea"
+                ><i class="fa-solid fa-person-dress" class="women"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#shoppingArea" 
+                ><i class="fa-solid fa-child-reaching" class="kids kidsIcon"></i
+              ></a>
+            </li>
+          </ul>
+        
         <div class="searchbardiv">
-        <input type="text" placeholder="Search..." class="searchbar" /></div>
+          <input type="text" placeholder="Search..." class="searchbar" />
+        </div>
+
         <div class="navcorner">
-          <div class="bag"><i class="fa-solid fa-bag-shopping"></i></div>
-          <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+          <div class="bag">
+            <i class="fa-solid fa-bag-shopping"></i
+            ><span class="badge bag-badge">0</span>
+          </div>
+          <div class="wishlist">
+            <i class="fa-solid fa-heart"></i
+            ><span class="badge wishlist-badge">0</span>
+          </div>
         </div>
         <!-- <button class="login">Login</button>
         <button class="signup">SignUp</button> -->
@@ -60,25 +69,42 @@
     <div class="stickyfeedback"></div>
 
     <!-- FEATURED AREA  -->
-    <section class="featured">
+    <section class="featured" id="shoppingArea">
       <h1 class="sectiontopic">Featured</h1>
 
       <div class="sliderarea">
-        <div class="leftarrow"><i class="fa-solid fa-arrow-left"></i></div>
+        <!-- <div class="leftarrow"><i class="fa-solid fa-arrow-left"></i></div> -->
 
         <div class="sliderbox">
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
+          
         </div>
 
         <div class="rightarrow"><i class="fa-solid fa-arrow-right"></i></div>
       </div>
     </section>
 
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <ul class="navlistul">
+            <!-- if i will put same id in href and in section then clicking on the anchor will take to that section  -->
+            <li>
+              <a href="##shoppingArea"><i class="fa-solid fa-house" class="home"></i></a>
+            </li>
+            <li>
+              <a href="#shoppingArea"><i class="fa-solid fa-person" class="men"></i></a>
+            </li>
+            <li>
+              <a href="#shoppingArea"
+                ><i class="fa-solid fa-person-dress" class="women"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#shoppingArea" 
+                ><i class="fa-solid fa-child-reaching" class="kids kidsIcon" ></i
+              ></a>
+            </li>
+          </ul>
+      <p class="copyright">&copy; All Rights Reserved | Vikas Jakhar</p>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>

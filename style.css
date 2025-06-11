@@ -8,12 +8,15 @@ html,body{
 .logo{background-color:rgb(117, 3, 3);; max-height: 90%; width: 5vw;margin-left:none;border-radius: 50%;overflow: hidden;&:hover{background-color:black;}}
 .logo i{font-size:8vh; &:hover{color: red;}}
 
-.navlist{
+.navlistul{
  display: flex; gap: 5vw;list-style: none;
 }
-.navlist li a{text-decoration: none;}
+.navlistul li a{text-decoration: none;}
 
-.navlist i{font-size: 4vh; color: rgb(117, 3, 3); &:hover{color: red;}}
+.navlistul i{font-size: 4vh; color: rgb(117, 3, 3); &:hover{color: red;}}
+/* .navlistul i.kidsIcon{font-size: 0.5vh !important; color: #0383a3;}  */
+/* not working in css the kidsIcon isnt getting smaller */
+
 .bag i{font-size: 4vh;color: rgb(117, 3, 3); &:hover{color: red;}}
 .wishlist i{font-size: 4vh;color: rgb(117, 3, 3); &:hover{color: red;}}
 
@@ -22,8 +25,20 @@ height: 5vh; width: 20vw; border-radius: 2vh;text-align: center; border: 1px sol
 }
 
 .navcorner{
-  display: flex;gap: 3vw;
+  display: flex;gap: 3vw;position: relative;
 }
+.badge {
+  position: absolute;
+  background-color: red;
+  color: white;
+  font-size:1.3vh;
+  padding: 0.3vh 0.6vh;
+  border-radius: 50%;
+  top: -0.8vh;
+  right: -0.8vh;
+  font-weight: bold;
+}
+.bag{position: relative;}.wishlist{position: relative;}
 .line
 {height:10px; background-color:rgb(117, 3, 3);}
 
@@ -49,9 +64,9 @@ height: 80vh;width: 100vw;border: 1px solid black;
   height: 85%;width: 85%; border: 1px solid rgba(255, 0, 0, 0.13); display: flex; justify-content: space-around;backdrop-filter: blur(10px);background: rgba(255, 255, 255, 0.11);
 box-shadow: 1px 3px 5px  rgb(74, 7, 7);
 }
-.leftarrow{margin-right: 2vw; }
+/* .leftarrow{margin-right: 2vw; } */
 .rightarrow{margin-left: 2vw;}
-.leftarrow i{font-size: 5vh;&:hover{cursor: pointer;}}
+/* .leftarrow i{font-size: 5vh;&:hover{cursor: pointer;}} */
 .rightarrow i{font-size: 5vh;&:hover{cursor: pointer;}}
 .card{
   height: 100%; width:15%;border: 1px solid rgba(255, 0, 0, 0);
@@ -74,3 +89,10 @@ box-shadow: 1px 3px 5px  rgb(74, 7, 7);
 .card .bag,.card .wishlist{display: flex;justify-content: center;}
 .card .bag i{color: red;margin-bottom:3px ;margin-top: 5px; &:hover{color: #0383a3;cursor: pointer;} }
 .card .wishlist i{color: red; &:hover{color: #0383a3;cursor: pointer;}}
+
+.footer{
+  height:10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
