@@ -93,7 +93,7 @@ box-shadow: 1px 3px 5px  rgb(74, 7, 7);
   color: black;
 }
 
-/* Features transitions  */
+/* banner and headings transitions  */
 .banner{
 position: relative;                /* Enables layering with absolute children */
   height: 80vh;
