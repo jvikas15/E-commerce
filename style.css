@@ -14,8 +14,8 @@ html,body{
 .navlistul li a{text-decoration: none;}
 
 .navlistul i{font-size: 4vh; color: rgb(117, 3, 3); &:hover{color: red;}}
-/* .navlistul i.kidsIcon{font-size: 0.5vh !important; color: #0383a3;}  */
-/* not working in css the kidsIcon isnt getting smaller */
+.navlistul i.kidsIcon{font-size: 2.5vh !important; color: #0383a3;} 
+/* have to over ride previous css for i for kids so used important */
 
 .bag i{font-size: 4vh;color: rgb(117, 3, 3); &:hover{color: red;}}
 .wishlist i{font-size: 4vh;color: rgb(117, 3, 3); &:hover{color: red;}}
@@ -42,13 +42,8 @@ height: 5vh; width: 20vw; border-radius: 2vh;text-align: center; border: 1px sol
 .line
 {height:10px; background-color:rgb(117, 3, 3);}
 
-.banner{
-height: 80vh;width: 100vw;border: 1px solid black;
-}
-.banner img{
-  height: 80vh; width: 100vw;object-fit: cover;       /* 💡 Key part: this prevents stretching */
-  object-position: center; /* optional: focuses center of the image */
-}
+
+
 .featured .sectiontopic{font-size: xx-large; text-align: center; background: linear-gradient(to bottom,rgb(156, 33, 2) 30%,#0383a3 60%,rgb(1, 76, 122)) 100% ;
   background-clip: text;font-weight: bolder;font-size:10vh ;
   color: transparent;}
@@ -57,7 +52,7 @@ height: 80vh;width: 100vw;border: 1px solid black;
     display: flex;
     height:60vh;width:100vw; border: 1px solid black;justify-content: center;align-items: center;
     background: linear-gradient(to right,rgb(156, 33, 2),rgb(1, 76, 122));
-  
+    margin-bottom: 1vh;
   }
 
 .sliderbox{
@@ -91,8 +86,65 @@ box-shadow: 1px 3px 5px  rgb(74, 7, 7);
 .card .wishlist i{color: red; &:hover{color: #0383a3;cursor: pointer;}}
 
 .footer{
-  height:10vh;
+  text-align: center; margin-top: 3vh;
+}
+
+.logo i{
+  color: black;
+}
+
+/* Features transitions  */
+.banner{
+position: relative;                /* Enables layering with absolute children */
+  height: 80vh;
+  width: 100vw;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+/* the banner image  */
+.bannerbg{
+  position: absolute;               /* Put image behind the text */
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;               /* Crop and fit nicely */
+  z-index: 0;                      /* Behind the text */
+  opacity: 0;                      /* Start invisible */
+  animation: fadeIn 1.5s ease forwards;
+}
+
+
+.banner .points {
+  z-index: 2;                       /* Above image */
+  color: white;
+  opacity: 0;                       /* Start hidden */
+  animation: fadeUp 1s ease forwards;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.banner .points:nth-of-type(1){
+  animation-delay: 1s;
+}
+
+.banner .points:nth-of-type(2) { animation-delay: 1.5s; }
+.banner .points:nth-of-type(3) { animation-delay: 2s; }
+.banner .points:nth-of-type(4) { animation-delay: 2.4s; }
+.banner .points:nth-of-type(5) { animation-delay: 2.8s; }
+
+/* Fade background image in */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Smooth upward fade for text */
+@keyframes fadeUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+
+

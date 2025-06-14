@@ -15,32 +15,32 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css">
   </head>
   <body>
     <div class="header">
       <div class="navbar">
-        <div class="logo" id="home">
-          <i class="fa-brands fa-pied-piper-alt"></i>
+        <div class="logo" id="home"><a href="index.html"><i class="fa-brands fa-pied-piper-alt logoicon"></i></a>
+          
         </div>
         
           <ul class="navlistul">
             <!-- if i will put same id in href and in section then clicking on the anchor will take to that section  -->
             <li>
-              <a href="#shoppingArea"><i class="fa-solid fa-house" class="home"></i></a>
+              <a href="#shoppingArea"><i class="fa-solid fa-house home"></i></a>
             </li>
             <li>
-              <a href="#shoppingArea"><i class="fa-solid fa-person" class="men"></i></a>
+              <a href="#shoppingArea"><i class="fa-solid fa-person men"></i></a>
             </li>
             <li>
               <a href="#shoppingArea"
-                ><i class="fa-solid fa-person-dress" class="women"></i
+                ><i class="fa-solid fa-person-dress women"></i
               ></a>
             </li>
             <li>
               <a href="#shoppingArea" 
-                ><i class="fa-solid fa-child-reaching" class="kids kidsIcon"></i
+                ><i class="fa-solid fa-child-reaching kidsIcon"></i
               ></a>
             </li>
           </ul>
@@ -59,14 +59,24 @@
             <span class="badge wishlist-badge">0</span>
           </div>
         </div>
-        <!-- <button class="login">Login</button>
-        <button class="signup">SignUp</button> -->
       </div>
     </div>
+        
     <hr class="line" />
-    <section class="banner" id="bannerid"></section>
+
+    <!-- banner  -->
+
+    <section class="banner" id="bannerid">
+      <h1 class="points">Current features of my E-commerce website</h1>
+      <h3 class="points">*Images are fetched dynamically from the Unsplash API.</h3>
+      <h3 class="points">*Featured product cards are dynamically generated (names, images, prices, discounts).</h3>
+      <h3 class="points">*Live buttons and page for Wishlist and Bag, with badge updates whilst data stored and retrived from localStorage.</h3>
+      <h3 class="points">*Responsive design.</h3>
+    </section>
+
     <hr class="line" />
-    <div class="stickyfeedback"></div>
+
+  
 
     <!-- FEATURED AREA  -->
     <section class="featured" id="shoppingArea">
@@ -82,27 +92,9 @@
         <div class="rightarrow"><i class="fa-solid fa-arrow-right"></i></div>
       </div>
     </section>
-
+<hr class="line" />
     <footer class="footer">
-      <ul class="navlistul">
-            <!-- if i will put same id in href and in section then clicking on the anchor will take to that section  -->
-            <li>
-              <a href="##shoppingArea"><i class="fa-solid fa-house" class="home"></i></a>
-            </li>
-            <li>
-              <a href="#shoppingArea"><i class="fa-solid fa-person" class="men"></i></a>
-            </li>
-            <li>
-              <a href="#shoppingArea"
-                ><i class="fa-solid fa-person-dress" class="women"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#shoppingArea" 
-                ><i class="fa-solid fa-child-reaching" class="kids kidsIcon" ></i
-              ></a>
-            </li>
-          </ul>
+      
       <p class="copyright">&copy; All Rights Reserved | Vikas Jakhar</p>
     </footer>
     <script src="demo.js"></script>

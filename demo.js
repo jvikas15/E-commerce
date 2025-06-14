@@ -15,7 +15,7 @@ if (document.querySelector(".banner")) {
   bannerposter();
 
   function bannerposter() {
-    fetch("https://api.unsplash.com/photos/random?query=sneaker_art", {
+    fetch("https://api.unsplash.com/photos/random?query=sneaker", {
       headers: {
         Authorization: "Client-ID QxT4DOimI2ygNtbcGyK73lZyvyWvpAr3R-yE8o7SNlE"
       }
@@ -23,7 +23,18 @@ if (document.querySelector(".banner")) {
       .then((res) => res.json())
       .then((data) => {
         let imgurl = data.urls.regular;
-        document.querySelector(".banner").innerHTML = `<img src="${imgurl}">`;
+        
+      let banner = document.querySelector(".banner");
+
+      // Create <img> element for background
+      let bannerbg = document.createElement("img");
+      bannerbg.classList.add("bannerbg");
+      // as the created element is an img .src can give its source that stored im=n imgurl 
+      bannerbg.src=imgurl; 
+      
+
+      // Append image WITHOUT removing existing headings
+      banner.appendChild(bannerbg);
       })
       .catch((error) => alert(error));
   }
@@ -63,7 +74,7 @@ function addToCart(item) {
 
 // -------- Homepage: Slider Population (index.html) --------
 if (document.querySelector(".sliderbox")) {
-  const names = ["The OG's", "Charmers", "Rizzlers", "Swaggers", "Ether"];
+  const names = ["OG's", "Charm", "Riz", "Swag", "Ether"];
   populatesliderbox(names);
 
   function populatesliderbox(namesArray) {
@@ -141,7 +152,9 @@ if (document.querySelector(".bagcards")) {
       `;
       card.prepend(imgbox);
       document.querySelector(".bagcards").appendChild(card);
+       
     });
+
   }
 
   function calculateBill(items) {
@@ -165,6 +178,7 @@ if (document.querySelector(".bagcards")) {
       <hr>
       <h3>Total: ₹${total}</h3>
     `;
+     
   }
 }
 
@@ -194,5 +208,6 @@ if (document.querySelector(".wishlistbox")) {
       card.prepend(imgbox);
       wishlistbox.appendChild(card);
     });
+     updateBadges();
   }
 }

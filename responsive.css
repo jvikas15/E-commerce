@@ -1,0 +1,27 @@
+/* we will have three breakpoints  desktop tab mobile*/ 
+
+@media(max-width:1280px) {
+
+  
+
+}
+
+@media(max-width:768px) {
+    .logo {display: flex;align-items: center;justify-content: center;}
+
+}
+
+
+@media(max-width:481px) {
+ .featured{height: 90vh;
+  
+ }
+  .banner{height: 100vh;}
+ .sliderbox{width: 100vw;
+  display: flex; overflow: scroll; justify-content: space-around;
+ }
+ .card{
+  width: 45%; height: 100%;
+ }
+ .searchbardiv{display: none;}
+}
